@@ -27,6 +27,7 @@ end
 group :test do
   gem 'simplecov'
   gem 'database_cleaner-active_record'
+  gem 'database_cleaner'
 end
 
 group :development do
