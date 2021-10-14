@@ -10,6 +10,7 @@ gem 'webpacker'
 gem 'jsonapi-serializer'
 gem 'faraday'
 gem 'graphql'
+gem 'graphiql-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors', require: 'rack/cors'
 
