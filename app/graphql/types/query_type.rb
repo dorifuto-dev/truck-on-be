@@ -15,9 +15,15 @@ module Types
     end
 
     field :users, [Types::UserType], null: false
-    
+
     def users
       User.all
+    end
+
+    field :trails, [Types::TrailType], null: false
+
+    def trails
+      Trail.all
     end
   end
 end
