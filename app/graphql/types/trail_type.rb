@@ -7,7 +7,7 @@ module Types
     field :elevation_gain, Integer, null: true
     field :description, String, null: true
     field :difficulty, Integer, null: true
-    field :type, Integer, null: true
+    field :route_type, Integer, null: true
     field :traffic, Integer, null: true
     field :nearest_city, String, null: true
     field :distance, Integer, null: true
