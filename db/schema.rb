@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_221638) do
+ActiveRecord::Schema.define(version: 2021_10_16_194652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_10_13_221638) do
     t.integer "elevation_gain"
     t.text "description"
     t.integer "difficulty"
-    t.integer "type"
+    t.integer "route_type"
     t.integer "traffic"
     t.string "nearest_city"
     t.integer "distance"
