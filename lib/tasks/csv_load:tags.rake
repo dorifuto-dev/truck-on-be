@@ -5,7 +5,7 @@ namespace :csv_load do
   task :tags => :environment do
     Tag.destroy_all
     file = './db/data/tags.csv'
-    CSV.foreach(file, :headers => true) do |row|
+    CSV.foreach(file, :headers => true, header_converters: :symbol) do |row|
       Tag.create!(row.to_hash)
     end
     ActiveRecord::Base.connection.reset_pk_sequence!(:tags)
