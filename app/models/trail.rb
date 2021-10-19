@@ -1,9 +1,9 @@
 class Trail < ApplicationRecord
-  has_many :favorites
+  has_many :favorites, dependent: :delete_all
   has_many :users, through: :favorites
-  has_many :trail_tags
+  has_many :trail_tags, dependent: :delete_all
   has_many :tags, through: :trail_tags
-  has_many :comments
+  has_many :comments, dependent: :delete_all
 
   enum difficulty: { 'Novice' => 0, 'Intermediate' => 1, 'Expert' => 2 }
   enum route_type: { 'Loop' => 0, 'Out and Back' => 1, 'Point to Point' => 2 }
