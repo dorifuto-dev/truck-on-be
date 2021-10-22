@@ -9,7 +9,6 @@ module Types
 
     field :trail, Types::TrailType, null: false do
       argument :id, ID, required: true
-      # resolve ->(_obj, args, _ctx) { Trails.find_by!(id: args[:id]) }
     end
 
     field :user, Types::UserType, null: false do
