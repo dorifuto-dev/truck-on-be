@@ -54,7 +54,14 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
-  #
+
+  def set_graphql_type
+    self.let(:subject) do
+      self.described_class
+    end
+  end
+
+  # ...
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
