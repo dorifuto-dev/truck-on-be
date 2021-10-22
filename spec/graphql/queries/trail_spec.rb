@@ -40,9 +40,9 @@ module Queries
                           "longitude"=>-106.1861,
                           "elevationGain"=>2874,
                           "description"=>"test",
-                          "difficulty"=>0,
-                          "routeType"=>0,
-                          "traffic"=>0,
+                          "difficulty"=>"Novice",
+                          "routeType"=>"Loop",
+                          "traffic"=>"Light",
                           "nearestCity"=>"Leadville, Alma",
                           "distance"=>16
                         }
@@ -53,9 +53,9 @@ module Queries
                           "elevationGain"=>752,
                           "description"=>
                            "test",
-                          "difficulty"=>0,
-                          "routeType"=>0,
-                          "traffic"=>0,
+                          "difficulty"=>"Novice",
+                          "routeType"=>"Loop",
+                          "traffic"=>"Light",
                           "nearestCity"=>"Saint Mary's",
                           "distance"=>2}
 
@@ -227,8 +227,8 @@ module Queries
                           "longitude"=>-106.1861,
                           "elevationGain"=>2874,
                           "distance"=>16,
-                          "temp"=>43.32,
-                          "conditions"=>"clear sky"
+                          "temp"=>43.14,
+                          "conditions"=>"broken clouds"
                         }
 
         expect(data).to eq(trail_return)
