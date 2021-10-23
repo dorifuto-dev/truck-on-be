@@ -201,7 +201,7 @@ module Queries
         expect(data).to eq(trail_return)
       end
 
-      it 'returns tags associated with trail', :vcr do
+      it 'returns current weather for trail', :vcr do
         def query
           <<~GQL
             query {
@@ -227,7 +227,7 @@ module Queries
                           "longitude"=>-106.1861,
                           "elevationGain"=>2874,
                           "distance"=>16,
-                          "temp"=>36.46,
+                          "temp"=>36.48,
                           "conditions"=>"clear sky"
                         }
 
