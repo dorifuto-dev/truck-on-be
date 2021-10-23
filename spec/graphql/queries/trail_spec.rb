@@ -325,6 +325,29 @@ module Queries
         expect(data).to eq(comment_return)
       end
 
+      it 'returns empty array if no comments' do
+        user = create(:user, id: 1, name: 'Jerry Seinfeld', vehicle: 'Ford Taurus')
+        def query
+          <<~GQL
+            query {
+              trail(id: 1) {
+                comments {
+                  content
+                }
+              }
+            }
+          GQL
+        end
+
+        post '/graphql', params: { query: query }
+
+        json = JSON.parse(response.body)
+        data = json['data']['trail']['comments']
+        comment_return = []
+
+        expect(data).to eq(comment_return)
+      end
+
       it 'returns a count of the comments on the trail' do
         user = create(:user, id: 1, name: 'Jerry Seinfeld', vehicle: 'Ford Taurus')
         comment1 = Comment.create(trail: @trail, user: user, content: 'fake comment 1')
