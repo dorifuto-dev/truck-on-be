@@ -227,8 +227,8 @@ module Queries
                           "longitude"=>-106.1861,
                           "elevationGain"=>2874,
                           "distance"=>16,
-                          "temp"=>43.14,
-                          "conditions"=>"broken clouds"
+                          "temp"=>36.46,
+                          "conditions"=>"clear sky"
                         }
 
         expect(data).to eq(trail_return)
@@ -298,6 +298,80 @@ module Queries
 
         expect(data).to eq(error_return)
         expect(json['data']).to eq(nil)
+      end
+
+      it 'returns comments associated with trail' do
+        user = create(:user, id: 1, name: 'Jerry Seinfeld', vehicle: 'Ford Taurus')
+        comment1 = Comment.create(trail: @trail, user: user, content: 'fake comment 1')
+        comment2 = Comment.create(trail: @trail, user: user, content: 'fake comment 2')
+        def query
+          <<~GQL
+            query {
+              trail(id: 1) {
+                comments {
+                  content
+                }
+              }
+            }
+          GQL
+        end
+
+        post '/graphql', params: { query: query }
+
+        json = JSON.parse(response.body)
+        data = json['data']['trail']['comments']
+        comment_return = [{"content"=>"fake comment 1"}, {"content"=>"fake comment 2"}]
+
+        expect(data).to eq(comment_return)
+      end
+
+      it 'returns empty array if no comments' do
+        user = create(:user, id: 1, name: 'Jerry Seinfeld', vehicle: 'Ford Taurus')
+        def query
+          <<~GQL
+            query {
+              trail(id: 1) {
+                comments {
+                  content
+                }
+              }
+            }
+          GQL
+        end
+
+        post '/graphql', params: { query: query }
+
+        json = JSON.parse(response.body)
+        data = json['data']['trail']['comments']
+        comment_return = []
+
+        expect(data).to eq(comment_return)
+      end
+
+      it 'returns a count of the comments on the trail' do
+        user = create(:user, id: 1, name: 'Jerry Seinfeld', vehicle: 'Ford Taurus')
+        comment1 = Comment.create(trail: @trail, user: user, content: 'fake comment 1')
+        comment2 = Comment.create(trail: @trail, user: user, content: 'fake comment 2')
+        def query
+          <<~GQL
+            query {
+              trail(id: 1) {
+                commentCount
+                comments {
+                  content
+
+                }
+              }
+            }
+          GQL
+        end
+
+        post '/graphql', params: { query: query }
+
+        json = JSON.parse(response.body)
+        data = json['data']['trail']['commentCount']
+
+        expect(data).to eq(2)
       end
     end
   end

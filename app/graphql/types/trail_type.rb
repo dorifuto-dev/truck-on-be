@@ -16,6 +16,8 @@ module Types
     field :tags, [Types::TagType], null: true
     field :temp, Float, null: true
     field :conditions, String, null: true
+    field :comments, [Types::CommentType], null: true
+    field :comment_count, Integer, null: true
 
     def temp
       weather = WeatherFacade.weather_info(object.latitude, object.longitude)
@@ -25,6 +27,14 @@ module Types
     def conditions
       weather = WeatherFacade.weather_info(object.latitude, object.longitude)
       weather.conditions
+    end
+
+    def comments
+      object.comments
+    end
+
+    def comment_count
+      object.comments.count
     end
   end
 end

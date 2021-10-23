@@ -5,7 +5,7 @@
 - Quality Control Checklist:
 
   - [ ] 100% SimpleCov test coverage (if below, please clarify below)
-  - [ ] Last commit has passing Travis build
+  - [ ] Last commit has passing CI build
 
 - Blockers (if applicable):
 
