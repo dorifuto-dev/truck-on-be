@@ -11,7 +11,6 @@
 <p align="center">
 
   <h3 align="center">Truck On</h3>
-  <!-- add link to heroku? -->
 
 </p>
 
@@ -53,7 +52,7 @@ Truck On allows a user to find off roading trails in Colorado. A user can save t
 
 POST /graphql
 
-[Query Examples](https://github.com/ericli1996/truck-on-be/wiki)
+[Query Examples](https://github.com/ericli1996/truck-on-be/wiki/Queries)
 
 ### Built With
 
@@ -67,7 +66,7 @@ POST /graphql
 
 ### Database Schema Design
 
-<!-- link database screenshot -->
+![schema](lib/images/schema.png)
 
 <!-- CONTACT -->
 ## Contributing
@@ -98,7 +97,7 @@ This project requires Ruby 2.7.2.
 2. Clone the fork
 3. From the command line, install gems and set up your DB:
    * `bundle install`
-   * `rails db:{create,migrate,csv_load:all}`
+   * `rails db:{create,migrate,seed,csv_load:all}`
 4. Run the test suite with bundle exec rspec.
 5. Run your development server with rails s to see the app in action.
 
