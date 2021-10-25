@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://truck-on.surge.sh'
+    origins ['localhost:3000', 'https://truck-on.surge.sh']
 
     resource '*',
       headers: :any,
