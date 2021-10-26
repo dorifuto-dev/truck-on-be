@@ -16,5 +16,5 @@ end
 end
 
 500.times do
-  Comment.create(user_id: rand(1..10), trail_id: rand(1..38), content: Faker::Lorem.sentences)
+  Comment.create(user_id: rand(1..10), trail_id: rand(1..38), content: Faker::Lorem.sentence(word_count: 20))
 end
