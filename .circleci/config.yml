@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Seed DB
           command: bundle exec rails db:{migrate,seed}
-      -run:
+      - run:
           name: Load CSV file to DB
           command: bundle exec rails csv_load:all
       - run:
