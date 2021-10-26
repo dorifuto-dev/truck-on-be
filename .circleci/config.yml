@@ -33,6 +33,9 @@ jobs:
           name: Setup DB
           command: bundle exec rails db:schema:load --trace
       - run:
+          name: Seed DB
+          command: bundle exec rails db:{migrate,seed,csv_load:all}
+      - run:
           name: Run test suite
           command: bundle exec rspec
 
