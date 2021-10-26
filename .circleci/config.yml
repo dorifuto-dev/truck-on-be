@@ -32,12 +32,12 @@ jobs:
       - run:
           name: Setup DB
           command: bundle exec rails db:schema:load --trace
-      - run:
-          name: Seed DB
-          command: bundle exec rails db:{migrate,seed}
-      - run:
-          name: Load CSV file to DB
-          command: bundle exec rails csv_load:all
+      # - run:
+      #     name: Seed DB
+      #     command: bundle exec rails db:{migrate,seed}
+      # - run:
+      #     name: Load CSV file to DB
+      #     command: bundle exec rails csv_load:all
       - run:
           name: Run test suite
           command: bundle exec rspec
@@ -50,9 +50,9 @@ jobs:
       HEROKU_APP: $HEROKU_APP_NAME
     steps:
       - checkout
-      # - run:
-      #     name: Setup Heroku
-      #     command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
+      - run:
+          name: Setup Heroku
+          command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
 
       - run:
           command: |
