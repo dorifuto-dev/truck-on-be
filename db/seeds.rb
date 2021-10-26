@@ -3,8 +3,6 @@ User.destroy_all
 Favorite.destroy_all
 Comment.destroy_all
 
-ActiveRecord::Base.connection.reset_pk_sequence!(:users)
-
 10.times do
   User.create(name: Faker::TvShows::Seinfeld.character, vehicle: Faker::Vehicle.make_and_model)
 end
