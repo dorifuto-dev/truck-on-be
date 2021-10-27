@@ -5,7 +5,6 @@
 [![Issues][issues-shield]][issues-url]
 
 
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -14,6 +13,7 @@
 
 </p>
 
+![schema](lib/images/truck_on.png)
 
 
 <!-- TABLE OF CONTENTS -->
